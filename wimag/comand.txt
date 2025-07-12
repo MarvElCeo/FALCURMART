@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, viewport-fit=cover">
+    <title>ShopEase - Premium Shopping Experience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   
+ <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9fafb;
+            color: #333;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        
+        /* Navigation styles */
+        .desktop-nav {
+            display: none;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: black;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4f46e5;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            margin-left: 50px;
+        }
+        
+        .nav-link {
+            color: #374151;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+            padding: 8px 0;
+            display: inline-block;
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            .nav-link:hover {
+                color: #4f46e5;
+            }
+        }
+        .nav-link:active {
+            color: #4f46e5;
+            transform: scale(0.98);
+        }
+        
+        .nav-link:hover {
+            color: #4f46e5;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #4f46e5;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .search-bar {
+            position: relative;
+        }
+        
+        .search-input {
+            padding: 10px 15px 10px 40px;
+            border: 1px solid #d1d5db;
+            border-radius: 20px;
+            font-size: 16px;
+            width: 200px;
+            transition: all 0.3s ease;
+        }
+        .search-input:focus-visible {
+            outline: 2px solid #4f46e5;
+            outline-offset: 2px;
+        }
+        .search-icon {
+            pointer-events: none;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: #a5b4fc;
+            box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+            width: 250px;
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+            font-size: 14px;
+        }
+        
+        .nav-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .icon-link {
+            color: #4b5563;
+            font-size: 20px;
+            padding: 10px;
+            min-width: 40px;
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .icon-link:active {
+            background-color: #e0e7ff;
+            transform: scale(0.95);
+        }
+        
+        .icon-link:hover {
+            background-color: #eef2ff;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: 0;
+            background-color: #4f46e5;
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+            height: 18px;
+            width: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+        
+        .dropdown-icon {
+            font-size: 12px;
+            transition: transform 0.3s ease;
+        }
+        
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 200px;
+            border-radius: 6px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown:hover .dropdown-icon {
+            transform: rotate(180deg);
+        }
+        
+        .dropdown-link {
+            display: block;
+            padding: 10px 15px;
+            color: #374151;
+            transition: background-color 0.3s ease;
+        }
+        
+        .dropdown-link:hover {
+            background-color: #eef2ff;
+        }
+        
+        /* Mobile navigation */
+        .mobile-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .mobile-menu-button {
+            font-size: 20px;
+            color: #4b5563;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .mobile-cart {
+            position: relative;
+        }
+        
+        /* Mobile menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background-color: white;
+            z-index: 200;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-out;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .mobile-menu-close {
+            font-size: 20px;
+            color: #4b5563;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .mobile-menu-content {
+            padding: 15px 0;
+        }
+        
+        .mobile-menu-section {
+            padding: 0 15px;
+            margin-bottom: 15px;
+        }
+        
+        .mobile-menu-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 10px;
+            font-weight: 600;
+            color: #111827;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .mobile-menu-title:hover {
+            background-color: #f3f4f6;
+        }
+        
+        .mobile-submenu-icon {
+            font-size: 12px;
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-submenu-icon.open {
+            transform: rotate(180deg);
+        }
+        
+        .mobile-submenu {
+            padding-left: 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .mobile-submenu.open {
+            max-height: 500px;
+            transition: max-height 0.5s ease-in;
+        }
+        
+        .mobile-menu-item {
+            display: block;
+            padding: 14px 20px;
+            color: #374151;
+            font-size: 16px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        .mobile-menu-item:active {
+            background-color: #e0e7ff;
+            transform: translateX(4px);
+        }
+        
+        .mobile-menu-item:hover {
+            background-color: #eef2ff;
+        }
+        
+        .mobile-divider {
+            border-top: 1px solid #e5e7eb;
+            margin: 15px 0;
+        }
+        
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 150;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .menu-overlay.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Responsive styles */
+        @media (min-width: 768px) {
+            .desktop-nav {
+                display: flex;
+            }
+            
+            .mobile-nav {
+                display: none;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .nav-links {
+                gap: 40px;
+                margin-left: 70px;
+            }
+            .nav-actions {
+                gap: 30px;
+            }
+            .search-input {
+                width: 240px;
+            }
+            .search-input:focus {
+                width: 300px;
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .nav-links {
+                gap: 50px;
+                margin-left: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
+        <div class="nav-main">
+            <a href="#" class="logo">ShopEase</a>
+            <div class="nav-links">
+                <a href="#" class="nav-link">Home</a>
+                
+                <!-- Men's Collection Dropdown -->
+                <div class="dropdown">
+                    <div class="dropdown-toggle nav-link">
+                        Men's Collection
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </div>
+                    <div class="dropdown-content">
+                        <a href="#" class="dropdown-link">Watches</a>
+                        <a href="#" class="dropdown-link">Shoes</a>
+                        <a href="#" class="dropdown-link">Bags</a>
+                        <a href="#" class="dropdown-link">Clothing</a>
+                        <a href="#" class="dropdown-link">Accessories</a>
+                    </div>
+                </div>
+                
+                <!-- Women's Collection Dropdown -->
+                <div class="dropdown">
+                    <div class="dropdown-toggle nav-link">
+                        Women's Collection
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </div>
+                    <div class="dropdown-content">
+                        <a href="#" class="dropdown-link">Dresses</a>
+                        <a href="#" class="dropdown-link">Bags</a>
+                        <a href="#" class="dropdown-link">Jewelry</a>
+                        <a href="#" class="dropdown-link">Shoes</a>
+                        <a href="#" class="dropdown-link">Cosmetics</a>
+                    </div>
+                </div>
+                
+                <a href="#" class="nav-link">About Us</a>
+                <a href="#" class="nav-link">Contact Us</a>
+            </div>
+        </div>
+        
+        <div class="nav-actions">
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="Search products...">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+            
+            <div class="nav-icons">
+                <a href="#" class="icon-link">
+                    <i class="fas fa-heart"></i>
+                </a>
+                <a href="#" class="icon-link">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">3</span>
+                </a>
+                
+                <!-- Account Dropdown -->
+                <div class="dropdown">
+                    <div class="icon-link">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="dropdown-content" style="right: 0; left: auto;">
+                        <a href="#" class="dropdown-link">Login</a>
+                        <a href="#" class="dropdown-link">Sign Up</a>
+                        <a href="#" class="dropdown-link">Account Settings</a>
+                        <a href="#" class="dropdown-link">Order History</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <div>
+            <button class="mobile-menu-button" id="mobileMenuButton">
+                <i class="fas fa-bars"></i>
+            </button>
+            <span class="logo">ShopEase</span>
+        </div>
+        <div>
+            <a href="#" class="icon-link mobile-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">3</span>
+            </a>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <div class="logo">Menu</div>
+            <button class="mobile-menu-close" id="mobileMenuClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-section">
+                <div class="mobile-menu-title" data-submenu="home">
+                    <span>Home</span>
+                    <i class="fas fa-chevron-down mobile-submenu-icon" id="mobile-home-icon"></i>
+                </div>
+                <div class="mobile-submenu" id="mobile-home-submenu">
+                    <a href="#" class="mobile-menu-item">Featured</a>
+                    <a href="#" class="mobile-menu-item">New Arrivals</a>
+                    <a href="#" class="mobile-menu-item">Deals</a>
+                </div>
+            </div>
+            
+            <!-- Men's Collection Dropdown -->
+            <div class="mobile-menu-section">
+                <div class="mobile-menu-title" data-submenu="men">
+                    <span>Men's Collection</span>
+                    <i class="fas fa-chevron-down mobile-submenu-icon" id="mobile-men-icon"></i>
+                </div>
+                <div class="mobile-submenu" id="mobile-men-submenu">
+                    <a href="#" class="mobile-menu-item">Watches</a>
+                    <a href="#" class="mobile-menu-item">Shoes</a>
+                    <a href="#" class="mobile-menu-item">Bags</a>
+                    <a href="#" class="mobile-menu-item">Clothing</a>
+                    <a href="#" class="mobile-menu-item">Accessories</a>
+                </div>
+            </div>
+            
+            <!-- Women's Collection Dropdown -->
+            <div class="mobile-menu-section">
+                <div class="mobile-menu-title" data-submenu="women">
+                    <span>Women's Collection</span>
+                    <i class="fas fa-chevron-down mobile-submenu-icon" id="mobile-women-icon"></i>
+                </div>
+                <div class="mobile-submenu" id="mobile-women-submenu">
+                    <a href="#" class="mobile-menu-item">Dresses</a>
+                    <a href="#" class="mobile-menu-item">Bags</a>
+                    <a href="#" class="mobile-menu-item">Jewelry</a>
+                    <a href="#" class="mobile-menu-item">Shoes</a>
+                    <a href="#" class="mobile-menu-item">Cosmetics</a>
+                </div>
+            </div>
+            
+            <div class="mobile-menu-section">
+                <a href="#" class="mobile-menu-title">About Us</a>
+            </div>
+            
+            <div class="mobile-menu-section">
+                <a href="#" class="mobile-menu-title">Contact Us</a>
+            </div>
+            
+            <div class="mobile-divider"></div>
+            
+            <!-- Account Section -->
+            <div class="mobile-menu-section">
+                <div class="mobile-menu-title" data-submenu="account">
+                    <span>Account</span>
+                    <i class="fas fa-chevron-down mobile-submenu-icon" id="mobile-account-icon"></i>
+                </div>
+                <div class="mobile-submenu" id="mobile-account-submenu">
+                    <a href="#" class="mobile-menu-item">Login</a>
+                    <a href="#" class="mobile-menu-item">Sign Up</a>
+                    <a href="#" class="mobile-menu-item">Account Settings</a>
+                    <a href="#" class="mobile-menu-item">Order History</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="menu-overlay" id="mobileMenuOverlay"></div>
+    
+    <script>
+        // Mobile menu functionality
+        const menuButton = document.getElementById('mobileMenuButton');
+        const menuCloseButton = document.getElementById('mobileMenuClose');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileOverlay = document.getElementById('mobileMenuOverlay');
+        
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('open');
+            mobileOverlay.classList.toggle('visible');
+        }
+        
+        // Event listeners for mobile menu
+        menuButton.addEventListener('click', toggleMobileMenu);
+        menuCloseButton.addEventListener('click', toggleMobileMenu);
+        mobileOverlay.addEventListener('click', toggleMobileMenu);
+        
+        // Mobile submenu functionality
+        const submenuTitles = document.querySelectorAll('.mobile-menu-title[data-submenu]');
+        
+        submenuTitles.forEach(title => {
+            title.addEventListener('click', function() {
+                const submenuId = this.getAttribute('data-submenu');
+                const submenu = document.getElementById(`mobile-${submenuId}-submenu`);
+                const icon = document.getElementById(`mobile-${submenuId}-icon`);
+                
+                // Toggle submenu
+                submenu.classList.toggle('open');
+                
+                // Toggle icon rotation
+                icon.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+AND USE THIS JAVA SCRIPT CODE TO MAKE IT EASIER TO DROP DOWN
+  document.querySelector('.open-toggle').addEventListener('click',
+   function(){
+    document.querySelector('.nav-links').classList.toggle('active')
+   }

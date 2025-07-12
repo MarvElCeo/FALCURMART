@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, viewport-fit=cover">
+    <title>ShopEase - Premium Shopping Experience</title>
+    <link rel="stylesheet" href="uuu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav navbar">
+        <div class="top-bar">
+            <a href="#" class="logo">ShopEase</a>
+            
+            <div class="nav-links">
+                <a href="#" class="nav-link">Home</a>
+                
+                <!-- Men's Collection Dropdown -->
+                <div class="dropdown">
+                    <div class="dropdown-toggle nav-link">
+                        Men's Collection
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </div>
+                    <div class="dropdown-content">
+                        <a href="#" class="dropdown-link">Watches</a>
+                        <a href="#" class="dropdown-link">Shoes</a>
+                        <a href="#" class="dropdown-link">Bags</a>
+                        <a href="#" class="dropdown-link">Clothing</a>
+                        <a href="#" class="dropdown-link">Accessories</a>
+                    </div>
+                </div>
+                
+                <!-- Women's Collection Dropdown -->
+                <div class="dropdown">
+                    <div class="dropdown-toggle nav-link">
+                        Women's Collection
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </div>
+                    <div class="dropdown-content">
+                        <a href="#" class="dropdown-link">Dresses</a>
+                        <a href="#" class="dropdown-link">Bags</a>
+                        <a href="#" class="dropdown-link">Jewelry</a>
+                        <a href="#" class="dropdown-link">Shoes</a>
+                        <a href="#" class="dropdown-link">Cosmetics</a>
+                    </div>
+                </div>
+                
+                <a href="#" class="nav-link">About Us</a>
+                <a href="#" class="nav-link">Contact Us</a>
+            </div>
+        </div>
+        
+        <div class="nav-actions">
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="Search products...">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+            
+            <div class="icons">
+                <a href="#" class="ico">
+                    <i class="fas fa-heart"></i>
+                </a>
+                <a href="#" class="ico">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">3</span>
+                </a>
+                
+                <!-- Account Dropdown -->
+                <div class="dropdown">
+                    <a href="#" class="ico">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <div class="dropdown-content" style="right: 0; left: auto;">
+                        <a href="#" class="dropdown-link">Login</a>
+                        <a href="#" class="dropdown-link">Sign Up</a>
+                        <a href="#" class="dropdown-link">Account Settings</a>
+                        <a href="#" class="dropdown-link">Order History</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <div>
+            <button class="open-toggle" id="mobileMenuButton">
+                <i class="fas fa-bars"></i>
+            </button>
+            <span class="logo">ShopEase</span>
+        </div>
+        <div>
+            <a href="#" class="ico mobile-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">3</span>
+            </a>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <div class="logo">ShopEase</div>
+            <button class="mobile-menu-close" id="mobileMenuClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-section">
+                <div class="mobile-menu-title" data-submenu="home">
+                    <span>Home</span>
+                    <i class="fas fa-chevron-down mobile-submenu-icon" id="mobile-home-icon"></i>
+                </div>
+                <div class="mobile-submenu" id="mobile-home-submenu">
+                    <a href="#" class="mobile-menu-item">Featured</a>
+                    <a href="#" class="mobile-menu-item">New Arrivals</a>
+                    <a href="#" class="mobile-menu-item">Deals</a>
+                </div>
+            </div>
+            
+            <!-- Men's Collection Dropdown -->
+            <div class="mobile-menu-section">
+                <div class="mobile-menu-title" data-submenu="men">
+                    <span>Men's Collection</span>
+                    <i class="fas fa-chevron-down mobile-submenu-icon" id="mobile-men-icon"></i>
+                </div>
+                <div class="mobile-submenu" id="mobile-men-submenu">
+                    <a href="#" class="mobile-menu-item">Watches</a>
+                    <a href="#" class="mobile-menu-item">Shoes</a>
+                    <a href="#" class="mobile-menu-item">Bags</a>
+                    <a href="#" class="mobile-menu-item">Clothing</a>
+                    <a href="#" class="mobile-menu-item">Accessories</a>
+                </div>
+            </div>
+            
+            <!-- Women's Collection Dropdown -->
+            <div class="mobile-menu-section">
+                <div class="mobile-menu-title" data-submenu="women">
+                    <span>Women's Collection</span>
+                    <i class="fas fa-chevron-down mobile-submenu-icon" id="mobile-women-icon"></i>
+                </div>
+                <div class="mobile-submenu" id="mobile-women-submenu">
+                    <a href="#" class="mobile-menu-item">Dresses</a>
+                    <a href="#" class="mobile-menu-item">Bags</a>
+                    <a href="#" class="mobile-menu-item">Jewelry</a>
+                    <a href="#" class="mobile-menu-item">Shoes</a>
+                    <a href="#" class="mobile-menu-item">Cosmetics</a>
+                </div>
+            </div>
+            
+            <div class="mobile-menu-section">
+                <a href="#" class="mobile-menu-title">About Us</a>
+            </div>
+            
+            <div class="mobile-menu-section">
+                <a href="#" class="mobile-menu-title">Contact Us</a>
+            </div>
+            
+            <div class="mobile-divider"></div>
+            
+            <!-- Account Section -->
+            <div class="mobile-menu-section">
+                <div class="mobile-menu-title" data-submenu="account">
+                    <span>Account</span>
+                    <i class="fas fa-chevron-down mobile-submenu-icon" id="mobile-account-icon"></i>
+                </div>
+                <div class="mobile-submenu" id="mobile-account-submenu">
+                    <a href="#" class="mobile-menu-item">Login</a>
+                    <a href="#" class="mobile-menu-item">Sign Up</a>
+                    <a href="#" class="mobile-menu-item">Account Settings</a>
+                    <a href="#" class="mobile-menu-item">Order History</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="menu-overlay" id="mobileMenuOverlay"></div>
+    
+    
+    
+    <script>
+        // Mobile menu functionality
+        const menuButton = document.getElementById('mobileMenuButton');
+        const menuCloseButton = document.getElementById('mobileMenuClose');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileOverlay = document.getElementById('mobileMenuOverlay');
+        
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('open');
+            mobileOverlay.classList.toggle('visible');
+            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : 'auto';
+        }
+        
+        // Event listeners for mobile menu
+        menuButton.addEventListener('click', toggleMobileMenu);
+        menuCloseButton.addEventListener('click', toggleMobileMenu);
+        mobileOverlay.addEventListener('click', toggleMobileMenu);
+        
+        // Mobile submenu functionality
+        const submenuTitles = document.querySelectorAll('.mobile-menu-title[data-submenu]');
+        
+        submenuTitles.forEach(title => {
+            title.addEventListener('click', function() {
+                const submenuId = this.getAttribute('data-submenu');
+                const submenu = document.getElementById(`mobile-${submenuId}-submenu`);
+                const icon = document.getElementById(`mobile-${submenuId}-icon`);
+                
+                // Toggle submenu
+                submenu.classList.toggle('open');
+                
+                // Toggle icon rotation
+                icon.classList.toggle('open');
+            });
+        });
+        
+        // Add animation to hero section
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroContent = document.querySelector('.hero-content');
+            setTimeout(() => {
+                heroContent.classList.add('animate-fade-in-up');
+            }, 300);
+        });
+    </script>
+</body>
+</html>
+
+/* Reset and base styles */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: rgba(0,0,0,0.0);
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        /* Navigation styles */
+        .navbar {
+            padding: 15px 5%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background: brown;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(45deg, #ff0099, #493240);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            margin-left: 50px;
+            background: transparent;
+        }
+        
+        .nav-link {
+            color: white;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 8px 0;
+            display: inline-block;
+            font-size: 16px;
+        }
+        
+        .nav-link:hover {
+            color: #ffcc00;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #ffcc00;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .search-bar {
+            position: relative;
+            width: 30px;
+        }
+        
+        .search-input {
+            padding: 15px 20px;
+            border-radius: 50px;
+            border: none;
+            color: #333;
+            box-shadow: 0 2px 5px rgba(138, 43, 226, 0.4);
+            font-size: 16px;
+            outline: none;
+            border: 1px solid rgb(192, 187, 187);
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus {
+            box-shadow: 0 2px 15px rgba(255, 0, 242, 0.5);
+            border-color: blueviolet;
+        }
+        
+        .search-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+            font-size: 16px;
+        }
+        
+        .icons {
+            display: flex;
+            gap: 1em;
+        }
+        
+        .ico {
+            border: 2px solid white;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            align-items: center;
+            transition: all 0.3s ease-out;
+            font-size: 20px;
+            justify-content: center;
+            border-radius: 50%;
+            cursor: pointer;
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .ico:hover {
+            background: #ffcc00;
+            color: #302b63;
+            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.6);
+            border: 2px solid rgb(255, 4, 213);
+            transform: translateY(-3px);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #ff3366;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            height: 22px;
+            width: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+        
+        .dropdown-icon {
+            font-size: 12px;
+            transition: transform 0.3s ease;
+        }
+        
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 200px;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown:hover .dropdown-icon {
+            transform: rotate(180deg);
+        }
+        
+        .dropdown-link {
+            display: block;
+            padding: 12px 20px;
+            color: #333;
+            transition: all 0.3s ease;
+            font-size: 15px;
+        }
+        
+        .dropdown-link:hover {
+            background: linear-gradient(to right, #f5f7fa, #e4e7eb);
+            color: #ff3366;
+            padding-left: 25px;
+        }
+        
+        /* Mobile navigation */
+        .mobile-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: linear-gradient(to right, #0f0c29, #302b63);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .open-toggle {
+            border: 2px solid white;
+            width: 50px;
+            height: 50px;
+            display: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            align-items: center;
+            transition: all 0.3s ease-out;
+            font-size: 20px;
+            justify-content: center;
+            border-radius: 50%;
+            cursor: pointer;
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .open-toggle:hover {
+            background: #ffcc00;
+            color: #302b63;
+            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.6);
+            border: 2px solid rgb(255, 4, 213);
+        }
+        
+        .mobile-cart {
+            position: relative;
+        }
+        
+        /* Mobile menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: linear-gradient(to bottom, #0f0c29, #302b63);
+            z-index: 200;
+            transform: translateX(-100%);
+            transition: transform 0.4s ease-out;
+            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+            overflow-y: auto;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .mobile-menu-close {
+            font-size: 24px;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu-close:hover {
+            transform: rotate(90deg);
+            color: #ffcc00;
+        }
+        
+        .mobile-menu-content {
+            padding: 20px 0;
+        }
+        
+        .mobile-menu-section {
+            padding: 0 15px;
+            margin-bottom: 10px;
+        }
+        
+        .mobile-menu-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 10px;
+            font-weight: 600;
+            color: white;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            font-size: 18px;
+        }
+        
+        .mobile-menu-title:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .mobile-submenu-icon {
+            font-size: 14px;
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-submenu-icon.open {
+            transform: rotate(180deg);
+        }
+        
+        .mobile-submenu {
+            padding-left: 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+        
+        .mobile-submenu.open {
+            max-height: 500px;
+            transition: max-height 0.6s ease-in;
+        }
+        
+        .mobile-menu-item {
+            display: block;
+            padding: 14px 25px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 16px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .mobile-menu-item:before {
+            content: "•";
+            position: absolute;
+            left: 10px;
+            color: #ffcc00;
+        }
+        
+        .mobile-menu-item:active {
+            background: rgba(255, 204, 0, 0.2);
+            transform: translateX(4px);
+        }
+        
+        .mobile-menu-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffcc00;
+            padding-left: 30px;
+        }
+        
+        .mobile-divider {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 20px 15px;
+        }
+        
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 150;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .menu-overlay.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Animations */
+        .animate-fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeinup 0.9s ease-out forwards;
+        }
+        
+        @keyframes fadeinup {
+            to {
+                opacity: 1;
+                transform: translateY(0);          
+            }
+        }
+        
+        .animate-expand {
+            width: 0;
+            opacity: 0; 
+            animation: expand 0.8s ease-out 1s forwards;
+        }
+        
+        @keyframes expand {
+            to {
+                width: 100%;
+                opacity: 1;
+            }
+        }
+        
+        /* Hero section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3') no-repeat center center;
+            background-size: cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            color: #f0f0f0;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(45deg, #ff3366, #ff9933);
+            color: white;
+            border-radius: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 51, 102, 0.4);
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 7px 20px rgba(255, 51, 102, 0.6);
+            background: linear-gradient(45deg, #ff9933, #ff3366);
+        }
+        
+        /* Responsive styles */
+        @media (min-width: 768px) {
+            .desktop-nav {
+                display: flex;
+            }
+            
+            .mobile-nav {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 890px) {
+            .desktop-nav {
+                display: none;
+            }
+            
+            .mobile-nav {
+                display: flex;
+            }
+            
+            .open-toggle {
+                display: flex;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                text-align: left;
+                width: 100%;
+                left: 0;
+                position: absolute;
+                padding: 2em 14px;
+                top: 80px;
+                display: none;
+                gap: 1.5em;
+                background: linear-gradient(to bottom, #0f0c29, #302b63);
+                z-index: 999;
+                border-radius: 0 0 10px 10px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            }
+            
+            .nav-links a {
+                display: inline;
+                color: white;
+                transition: all 0.4s ease-out;
+                font-size: 16px;
+                padding: 10px 15px;
+                border-radius: 6px;
+            }
+            
+            .nav-links a:hover {
+                background: rgba(255, 255, 255, 0.1);
+                border-left: 2px solid #ffcc00;
+                border-right: 2px solid #ffcc00;
+                padding: 10px 20px;
+            }
+            
+            .nav-links.active {
+                display: flex;
+                z-index: 9999;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .search-bar {
+                width: 100%;
+                max-width: 280px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 12px 30px;
+                font-size: 16px;
+            }
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, #0f0c29, #302b63);
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+            padding: 0 15px;
+        }
+        
+        .footer-section h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #ffcc00;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: #ffcc00;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+            transition: transform 0.3s ease;
+        }
+        
+        .footer-links li:hover {
+            transform: translateX(8px);
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            display: block;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #ffcc00;
+            text-decoration: none;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background: #ffcc00;
+            transform: translateY(-5px);
+        }
+        
+       make this responsive and user  friendly
