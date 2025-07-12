@@ -1,0 +1,148 @@
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+.main{
+    margin: 2rem 0;
+    padding: 1rem 0;
+}
+
+.main h4{
+    display: inline-flex;
+    padding: 1rem;
+    font-size: 1.3em;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.swiper-cat{
+    cursor: pointer;
+}
+
+swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  swiper-slide {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    height: 400px;
+    font-size: 18px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;  
+  }
+  .swiper-dev{
+    position: relative;
+    text-transform: uppercase;
+    display: flex;
+    width: 100%;
+   bottom: 134PX; 
+    justify-content: space-between;
+    color: white;
+    align-items: center;
+    padding: 1rem 1rem;
+  }
+  .swiper-dev h3{
+    font-size: 15px;
+    font-weight: 200;
+    color: #555;
+    line-height: 1.8;
+  }
+  .swiper-dev a{
+    border: 1px solid black;
+    padding: 10px;
+    background: black;
+    color: white;
+  }
+
+  .swiper-des{
+    position: relative;
+    width: 100%;
+    text-transform: uppercase;
+    background-color: #fff;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .6rem .5rem;
+  }
+
+  .swiper-des a{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    gap: 2rem;
+  }
+
+  .swiper-dev a{
+  }
+
+  .section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 4%;
+    transition: .5s ease-in-out all;
+}
+
+.section-card{
+    position: relative;
+    max-width: 800px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: flex-end;
+    transition: inherit;
+    margin-bottom: 1rem;
+}
+
+.section-details{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    transition: inherit;
+    margin: .5rem 0 .4rem;
+    padding: .8rem;
+    row-gap: .5rem;
+}
+
+.section-details h1{
+    text-transform: uppercase;
+    transition: .4s ease-in-out all;
+}
+
+.section-details > p > span{
+    font-weight: 400;
+}
+
+.section-card button{
+    font-weight: 600;
+    padding: .7rem 2rem;
+    background-color: transparent;
+    border: 1px solid #000;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+}
+
+
+.section-card img{
+    display: block;
+    max-width: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: .6s ease-in-out all;
+}
+
+
+

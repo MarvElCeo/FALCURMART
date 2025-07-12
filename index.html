@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Falccur mart</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stylo.css">
+</head>
+
+<body>
+    <div class="marquee">
+            <marquee behavior="" direction=""> Welcome to falcur mart</marquee>
+</div>
+
+     
+
+  <!-- Desktop Navigation -->
+    <nav class="navbar desktop-nav">
+        <img src="logo1.png" width="100px">
+        
+        <div class="nav-container">
+            <div class="nav-links">
+                <a href="#" class="nav-link">Home</a>
+                
+                <!-- Men's Collection Dropdown -->
+                <div class="dropdown">
+                    <div class="dropdown-toggle nav-link">
+                        Men's Collection
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </div>
+                    <div class="dropdown-content">
+                        <a href="Men-page.html" class="dropdown-link">Men page</a>
+                        <a href="Men-page.html" class="dropdown-link">Shoes</a>
+                        <a href="Men-page.html" class="dropdown-link">Woredrobe Lab</a>
+                        <a href="Men-page.html" class="dropdown-link">Accessories</a>
+                    </div>
+                </div>
+                
+                <!-- Women's Collection Dropdown -->
+                <div class="dropdown">
+                    <div class="dropdown-toggle nav-link">
+                        Women's Collection
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </div>
+                    <div class="dropdown-content">
+                        <a href="Women-page.html" class="dropdown-link">Dresses</a>
+                        <a href="mini.htmlhtml" class="dropdown-link">Bags</a>
+                        <a href="Men-page.html" class="dropdown-link">Woredrobe Lab</a>
+                        <a href="Women-page.html" class="dropdown-link">Cosmetics</a>
+                    </div>
+                </div>
+                
+                <a href="mini.html" class="nav-link">Mini tech</a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+            </div>
+            
+            <div class="nav-actions">
+                <div class="search-bar">
+                    <input type="text" class="search-input" placeholder="Search products...">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                
+                <div class="cart-icons">
+                    <a href="#" class="cart-icon">
+                       <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                       <span class="cart-count">0</span>
+                    </a>
+                    
+                    <!-- Account Dropdown -->
+                    <div class="dropdown">
+                        <a href="#" class="cart-icon">
+                            <i class="fas fa-user"></i>
+                        </a>
+                        <div class="dropdown-content account-dropdown">
+                            <a href="#" class="dropdown-link">Login</a>
+                            <a href="#" class="dropdown-link">Sign Up</a>
+                            <a href="#" class="dropdown-link">Account Settings</a>
+                            <a href="#" class="dropdown-link">Order History</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+
+
+
+
+     <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <div>
+            <button class="mobile-toggle" id="mobileMenuButton">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <section class="logo">
+                <img src="logo1.png" width="120px">
+            </section>
+
+        <div>
+              <a href="#" class="cart-icon">
+                       <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                       <span class="cart-count">0</span>
+                    </a>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <div class="logo">Falcurmart</div>
+            <button class="mobile-menu-close" id="mobileMenuClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="mobile-menu-content">
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="Search products...">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+            
+            <div class="mobile-menu-section">
+                <div class="mobile-menu-title" data-submenu="home">
+                    <span>Home</span>
+                    <i class="fas fa-chevron-down mobile-submenu-icon" id="mobile-home-icon"></i>
+                </div>
+                <div class="mobile-submenu" id="mobile-home-submenu">
+                   <a href="index.html" class="mobile-menu-item">Featured</a>
+                    <a href="index.html" class="mobile-menu-item">New Arrivals</a>
+                    <a href="index.html" class="mobile-menu-item">Deals</a>
+                </div>
+            </div>
+               
+            <!-- Men's Collection Dropdown -->
+            <div class="mobile-menu-section">
+                <div class="mobile-menu-title" data-submenu="men">
+                    <span>Men's Collection</span>
+                    <i class="fas fa-chevron-down mobile-submenu-icon" id="mobile-men-icon"></i>
+                </div>
+                <div class="mobile-submenu" id="mobile-men-submenu">
+                    <a href="Men-page.html" class="mobile-menu-item">Men page</a>
+                    <a href="woredrobe.html" class="mobile-menu-item">Woredrobe Lab</a>
+                    <a href="Men-page.html" class="mobile-menu-item">Bags</a>
+                    <a href="Men-page.html" class="mobile-menu-item">Accessories</a>
+                </div>
+            </div>
+            
+            <!-- Women's Collection Dropdown -->
+            <div class="mobile-menu-section">
+                <div class="mobile-menu-title" data-submenu="women">
+                    <span>Women's Collection</span>
+                    <i class="fas fa-chevron-down mobile-submenu-icon" id="mobile-women-icon"></i>
+                </div>
+                <div class="mobile-submenu" id="mobile-women-submenu">
+                    <a href="Women-page.html" class="mobile-menu-item">Dresses</a>
+                    <a href="Women-page.html" class="mobile-menu-item">Bags</a>
+                    <a href="Women-page.html" class="mobile-menu-item">Jewelry</a>
+                    <a href="Women-page.html" class="mobile-menu-item">Cosmetics</a>
+                </div>
+            </div>
+            
+            
+            <div class="mobile-menu-section">
+                <a href="contact.html" class="mobile-menu-title">About Us</a>
+            </div>
+            
+            <div class="mobile-menu-section">
+                <a href="contact.html" class="mobile-menu-title">Contact Us</a>
+            </div>
+            
+            <!-- Account Section -->
+            <div class="mobile-menu-section">
+                <div class="mobile-menu-title" data-submenu="account">
+                    <span>Account</span>
+                    <i class="fas fa-chevron-down mobile-submenu-icon" id="mobile-account-icon"></i>
+                </div>
+                <div class="mobile-submenu" id="mobile-account-submenu">
+                    <a href="#" class="mobile-menu-item">Login</a>
+                    <a href="#" class="mobile-menu-item">Sign Up</a>
+                     <a href="contact.html" class="mobile-menu-item">Contact</a>
+                    <a href="#" class="mobile-menu-item">Order History</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="menu-overlay" id="mobileMenuOverlay"></div>
+   
+
+
+
+
+
+
+
+
+
+
+ <div class="fir-info">
+     <h1>Welcome to Falcur mart edsu</h1>
+        <p>The best shop to shop for all your needs we offer all of your need</p>
+        </div>
+    
+    <section class="shop-small-cards">
+        
+      <div class="shop-small-cards-col">
+       <svg height="22" viewBox="0 0 14 22" width="34" xmlns="http://www.w3.org/2000/svg" aria-label="menu-phones" class="" name="menu-phones"><path d="M13.222 18.818A2.177 2.177 0 0 1 11.05 21H3.173C1.973 21 1 20.023 1 18.818V3.182C1 1.977 1.973 1 3.173 1h7.876c1.2 0 2.173.977 2.173 2.182v15.636zm-6.11.58a1.23 1.23 0 0 0 1.227-1.232c0-.68-.55-1.233-1.228-1.233a1.23 1.23 0 0 0-1.227 1.233c0 .68.55 1.232 1.227 1.232z" fill="none" fill-rule="nonzero" stroke="#50545B"></path></svg>
+      <h4> Phones</h4>
+      </div>
+
+
+   <div class="shop-small-cards-col">     
+   <svg height="24" viewBox="0 0 24 22" width="34" xmlns="http://www.w3.org/2000/svg" aria-label="menu-fashion" class=""  name="menu-fashion"><path d="M16.913 21H7.31c-.611 0-1.107-.5-1.107-1.114V9.948l-.62.623a1.102 1.102 0 0 1-1.566 0L1.324 7.858a1.12 1.12 0 0 1 0-1.575l4.924-4.957c.24-.242.588-.36.922-.317.046-.006.093-.009.14-.009h1.369c.375 0 .725.192.93.509.435.677 1.417 1.114 2.502 1.114 1.085 0 2.069-.437 2.504-1.114.204-.317.554-.509.93-.509h1.369c.047 0 .093.003.14.009a1.107 1.107 0 0 1 .922.317l4.922 4.957a1.12 1.12 0 0 1 0 1.575l-2.692 2.713a1.104 1.104 0 0 1-1.566 0l-.62-.624v9.939c0 .615-.496 1.114-1.107 1.114z" fill="none" fill-rule="nonzero" stroke="#50545B"></path></svg>
+    <h4> Tshirt</h4>
+    </div>
+
+          <div class="shop-small-cards-col">
+          <img src="Icons/cosmetics_3194491.png" alt="" height="34px" width="35px">
+            <h4>Cosmetics</h4>
+         </div>
+
+    
+         <div class="shop-small-cards-col">
+       <img src="Icons/briefcase_837750.png" width="20px">
+         <h4>Bag....</h4> 
+        </div>
+
+        <div class="shop-small-cards-col">
+        <img src="Icons/runner_17867071.png" alt="" width="30px">
+        <h4>Shoes...</h4>
+        </div>
+
+         <div class="shop-small-cards-col">
+         <img src="Icons/wristwatch_15573559.png" alt="" width="30px">
+        <h4>Watch</h4>
+    </div>
+</section>
+
+
+   
+
+<!---Full-width swiper--->
+
+   <section class="main">
+        <h4>Featured Products</h4>
+        <swiper-container class="mySwiper swiper-cat" init="false">
+
+   <swiper-slide card-1 style="background-image: linear-gradient(#00000030, #00000030), url(ProductImg/coowoz_School_backpack.jpeg);">
+                
+      <div class="swiper-des" >
+              <a href="">Backpack <i class='bx bx-right-arrow-alt'></i></a>
+             </div>            
+            </swiper-slide>
+
+            <swiper-slide card-2 style="background-image: linear-gradient(#00000000, #00000000), url(ProductImg/0bef1356c67c450ab2ed75fe6635a651.jpeg);">
+                <div class="swiper-des">
+                    <a href="">Good clothing <i class='bx bx-right-arrow-alt'></i></a>
+                </div>
+            </swiper-slide>
+            <swiper-slide card-3 style="background-image: linear-gradient(#00000034, #00000028), url(wimag/Images_de_Tube\ _\ Freepik.jpeg);">
+                <div class="swiper-des">
+                    <a href="">Cosmetics<i class='bx bx-right-arrow-alt'></i></a>
+                </div>
+            </swiper-slide>
+            <swiper-slide card-4 style="background-image: linear-gradient(#00000000, #00000013), url(ProductImg/c7593656.jpeg);">
+                <div class="swiper-des">
+                    <a href="">Pefume& and Bodyspray <i class='bx bx-right-arrow-alt'></i></a>
+                </div>
+            </swiper-slide>
+            <swiper-slide style="background-image: linear-gradient(#00000030, #00000030),  url(ProductImg/74a37e97.jpeg);">
+                <div class="swiper-des">
+                    <a href="">Cool fit <i class='bx bx-right-arrow-alt'></i></a>
+                </div>
+            </swiper-slide>
+            <swiper-slide style="background-image: linear-gradient(#00000030, #00000030),  url(wimag/Men\'sFashion_Inspiration_\ All\ in\ the\ Details\ _\ M&J\ Blog.jpeg);">
+                <div class="swiper-des">
+                    <a href="">Watches <i class='bx bx-right-arrow-alt'></i></a>
+                </div>
+            </swiper-slide>
+            <swiper-slide style="background-image: linear-gradient(#00000030, #00000030),  url(ProductImg/Air_Jordan.jpeg);">
+                <div class="swiper-des">
+                    <a href="">Shoes <i class='bx bx-right-arrow-alt'></i></a>
+                </div>
+            </swiper-slide>
+            <swiper-slide style="background-image: linear-gradient(#00000030, #00000030),  url(wimag/Light_Reflecting.jpeg);">
+                <div class="swiper-des">
+                    <a href="">Female Assesories <i class='bx bx-right-arrow-alt'></i></a>
+                </div>
+            </swiper-slide>
+            <swiper-slide style="background-image: linear-gradient(#00000030, #00000030),  url(ProductImg/Gray.jpg);">
+                <div class="swiper-dev">
+                   <h3> Get your sound resistant headset Here <br> <a href="index.html"> Get now</a></h3>
+                </div>
+                    
+                </div>
+            </swiper-slide>
+          </swiper-container>
+    </section>
+<!--- Full-width swiper close---> 
+
+      
+    <section class="activities">
+        <div class="activities-card">
+            <div class="act-col">
+                <span><i class="fa-regular fa-credit-card"></i></span>
+                    <div class="act-col-des">
+                        <h4>Secure payment</h4>
+                        <p>Secure online payment</p>
+                    </div> 
+            </div>
+            
+            <div class="act-col">
+                <span>
+                    <i class="fa-solid fa-right-left"></i>
+                </span>
+               <div class="act-col-des">
+                    <h4>7-14 days returns</h4>
+                    <p>Money back guaranteed</p>
+               </div> 
+            </div>
+    
+            <div class="act-col">
+                <span><i class='bx bx-like'></i></span>
+                   <div class="act-col-des">
+                        <h4>Customer support</h4>
+                        <p>Available 24/7</p>
+                   </div>    
+            </div>
+    
+            <div class="act-col">
+                <span><i class='bx bx-package' style="font-weight: 300;"></i></span>
+               <div class="act-col-des">
+                <h4>Free delivery</h4>
+                <p>On all products over ₦ 100,000</p>
+               </div>  
+            </div>
+        </div>
+      </section>
+    
+
+<!--- product gallery open--->
+   <section class="new-ar">
+    <h2>New Arrivals</h2>
+    <a href=""> View all</a>
+    <div class="product-grid">
+        
+<!--- product card open--->       
+  <div class="product-card">
+       <a href="Product files/Home product Details.html">
+           <img src="image/bomber_anthracite_front_shopify_720x.png" alt="">
+        <H3>Men black and white Hoodie</H3>
+         <P><span class="nir">#</span>30,000</P>  
+         <h4 class="pro-tit">Classic Black Hoddie the perfect blend of style and comfort</h4>
+        </a>
+        <button class="add-to-cart"> ADD TO CART <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+    </div>
+<!--- product card close---> 
+
+
+     <div class="product-card">
+        <img src="ProductImg/1e4c5d46eb104880b3a9d4485a570499.jpeg" alt="">
+         <h3>Casual Hoddie</h3>
+         <P><span class="nir">#</span>40,000</P>
+         <h4  class="pro-tit">Classic Casual Dope Hoddie the perfect blend of style and comfort</h4>
+        <button class="add-to-cart"> ADD TO CART <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+    </div>
+
+
+    <div class="product-card">
+         <img src="ProductImg/Men'sPersonalityTrendy PatchworkComfortable CasualSneakers, NicheDesign Lace-UpHigh-Top VulcanizedShoes, HikingCouple's CasualWhite Shoes.jpeg" alt="">
+        <h3> White Sneakers</h3>
+        <P><span class="nir">#</span>18,000</P>
+        <h4 class="pro-tit">Sleek White Sneakers - Elevate your style Effortlessly</h4>
+        <button class="add-to-cart"> ADD TO CART <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+     </div>
+
+
+<div class="product-card"> 
+        <a href=" Product files/Home product Details2.html">
+        <img src="ProductImg/15_Trendy_Outfit Grids_For_Men_To Stay_In_Style.jpeg">
+        <h3>Complect clothing</h3>
+        <P><span class="nir">#</span>60,000</P>
+        <h4 class="pro-tit">Ultimate Style Bundle - The perfect Head - to - toe look</h4>
+    </a>
+ <button class="add-to-cart"> ADD TO CART <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>   
+    </div>
+    </div>
+<!--- product gallery closed--->
+
+
+<!--- product gallery open--->
+
+     <div class="product-grid">
+        <div class="product-card">
+        <a href="Product files/Home product Details1.html">
+        <img src="ProductImg/5e5cfad5.jpeg" alt="">
+        <h3> black and white Hoodie</h3>
+         <P><span class="nir">#</span>30,000</P>  
+         <h4 class="pro-tit">Classic Black Hoddie the perfect blend of style and comfort</h4>
+    </a>
+<button class="add-to-cart"> ADD TO CART <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>    
+</div>
+
+
+
+     <div class="product-card">  
+        <a href="Product files/Home product Details3.html">
+        <img src="ProductImg/8537fb7.jpeg" alt="">
+         <h3> Clean nice blue white canvas</h3>
+         <P><span class="nir">#</span>30,000</P>  
+         <h4 class="pro-tit">Classic Black Hoddie the perfect blend of style and comfort</h4>
+    </a>
+
+        <button class="add-to-cart"> ADD TO CART <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+    
+</div>
+
+     <div class="product-card">
+         <img src="ProductImg/78a1.jpeg" alt="">
+        <h3> White Sneakers</h3>
+        <P><span class="nir">#</span>18,000</P>
+        <h4 class="pro-tit">Sleek White Sneakers - Elevate your style Effortlessly</h4>
+        <button class="add-to-cart"> ADD TO CART <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+    </div>
+
+
+<div class="product-card">
+     <a href="Product files/Home product Details1.html">
+      <img src="ProductImg/a6944ce0.jpeg">
+  <h3>Complect clothing</h3>
+      <P><span class="nir">#</span>60,000</P>
+     <h4 class="pro-tit">Ultimate Style Bundle - The perfect Head - to - toe look</h4>
+         </a>
+        <button class="add-to-cart"> ADD TO CART <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+         </div>
+      </div> 
+   </section>
+<!--- product gallery closed--->
+      
+   <section class="Product-num">
+    <div class="product-num-col">
+      <a href="next-product/Product page2 .html">  1  </a>
+    </div>
+
+    <div class="product-num-col">
+      <a href="mini.html">  2  </a>
+    </div>
+
+    <div class="product-num-col">
+       <a href="mini.html">  3  </a>
+    </div>
+
+    <div class="product-num-col">
+        <a href="mini.html">  4  </a>
+    </div>
+
+   </section>
+
+
+
+   <section class="main">
+        <div class="main-content">
+            <span>Our Collection</span>
+            <h2>Shop By Collections</h2>
+            <p>Buy / order your good quality products with Falcur</p>
+        </div>
+
+        <div class="grid">
+            <div class="grid-col-one">
+                <div class="box grid-one" style="height: 500px;">
+                    <div class="box-image1">
+                        <img src="ProductImg/I_Love_it.jpeg" alt="bedroom">
+                    </div>
+    
+                    <div class="box-content">
+                        <button>18 items</button>
+                        <h4>Cool sleek Shoes</h4>
+                      
+                        <p> Your journey matters—walk confidently with shoes that truly care. Order today! </p>
+                        <a href="">View items ></a>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="grid-col">
+                <div class="box1 grid-two">
+                <div class="box-image1">
+                    <img src="ProductImg/Black_hoodie_for_men.jpeg" alt="bedroom" width="20px">
+                </div>
+
+                <div class="box-content">
+                    <button>18 items</button>
+                    <h4>Sleek Black Hoddie</h4>
+                    <p>Experience comfort that cares—feel the love in every thread of our Black Hoodie. Order today!</p>
+                    <a href="">View items ></a>
+                </div>
+            </div>
+                <div class="grid-col-row">
+                    <div class="box1 grid-three">
+                        <div class="box-image1">
+                            <img src="wimag/Men'sFashion_Inspiration_ All in the Details _ M&J Blog.jpeg" alt="bedroom">
+                        </div>
+        
+                        <div class="box-content">
+                            <button>18 items</button>
+                            <h4>Watch</h4>
+                            <p>Cherish every second—choose a timepiece crafted with care for your precious moments. Shop today!</p>
+                            <a href="">View items ></a>
+                        </div>
+                    </div>
+                    <div class="box1 grid-four">
+                        <div class="box-image1">
+                            <img src="wimag/Images_de_Tube _ Freepik.jpeg" alt="bedroom">
+                        </div>
+        
+                        <div class="box-content">
+                            <button>18 items</button>
+                            <h4>Cosmetics/Skin care</h4>
+                            <p>Enhance your natural beauty with products made to care for you—discover our collection and glow with confidence. Shop now!</p>
+                            <a href="">View items ></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+     <section class="proin-display">
+        <div class="proin-display-col">
+            <h3>Women's New Arrivals</h3>
+            <p> Trendy outfits, accessories,and foot wear for every occasion</p>
+            <button><a href="Women-page.html">Start your journey</a></button>
+        </div>
+
+        <div class="proin-display-col2">
+            <h3>Men's New Arrivals</h3>
+            <p> Sharp looks, comfort, and versatility redefined</p>
+            <button>Start your journey</button>
+        </div>
+     </section>
+
+
+
+
+
+
+  
+
+
+
+
+  
+    <section class="coming" id="coming">
+        <h2 class="heading">Coming soon</h2>
+        <div class="coming-container swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide box">
+                    <div class="box-img">
+                        <img src="wimag/Images_de_Tube _ Freepik.jpeg" alt="">
+                    </div>
+                </div>
+
+
+                <div class="swiper-slide box">
+                    <div class="box-img">
+                        <img src="ProductImg/161657a4.jpeg" alt="">
+                    </div>
+                </div>
+
+
+
+                <div class="swiper-slide box">
+                    <div class="box-img">
+                        <img src="wimag/znnnmp.jpeg" alt="">
+                    </div>
+                </div>
+
+
+
+                <div class="swiper-slide box">
+                    <div class="box-img">
+                        <img src="ProductImg/Предметнаясъёмка.jpeg" alt="">
+                    </div>
+                </div>
+
+
+                <div class="swiper-slide box">
+                    <div class="box-img">
+                        <img src="ProductImg/29a0256.jpeg" alt="">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+   <section class="full">
+    <h3>Trendy outfits, accessories,and foot wear for every occasion</h3>
+    <p>Let Us Exceed Your Expectations - Contact Us Today!</p>
+    <button class="con">Explore</button>
+    
+   </section>
+
+
+
+
+   <div class="cart-modal">
+    <div class="cart-header">
+        <h2>Your Cart</h2>
+        <button class="close-cart">×</button>
+        
+    </div>
+    <div class="cart-items">
+        <!-- Cart items will be dynamically added here -->
+    </div>
+    <a href="cart-summary.html" class="checkout-btn" style="display:block;width:100%;margin-top:12px;padding:12px 0;background:#007bff;color:#fff;text-align:center;border:none;border-radius:4px;font-weight:bold;font-size:16px;text-decoration:none;">Check Out</a>
+    <div class="cart-total">
+        <h3>Total: $<span class="total-amount">0</span></h3>
+    </div>
+</div>
+
+<!-- Notification Toast -->
+<div id="cart-toast" style="display:none;position:fixed;top:30px;right:30px;z-index:9999;background:#222;color:#fff;padding:16px 28px;border-radius:6px;font-size:1rem;box-shadow:0 2px 8px rgba(0,0,0,0.15);transition:opacity 0.3s;opacity:0;">
+  <span id="cart-toast-msg"></span>
+</div>
+
+
+
+
+
+
+<footer>
+    <div class="container1">
+      <!-- Realtors column -->
+      <div class="column1 realtors">
+        <h2>Falcurmart Store</h2>
+        <p>Discover student-exclusive deals, timely restocks, and curated picks every week. 
+            Stay connected with effortless shopping and full support—right where you are..</p>
+        <div class="social-icons">
+          <span class="icon"><i class="fa-brands fa-facebook" style="color: #075ced;"></i></span> <!-- Placeholder for Twitter/X -->
+          <span class="icon"><i class="fa-brands fa-whatsapp" style="color: #09ec41;"></i></span> <!-- Placeholder for Instagram -->
+        </div>
+      </div>
+      <!-- Quick Links column -->
+      <div class="column1 quick-links">
+        <h2>Quick Links</h2>
+        <ul>
+          <li><a href="#">How to shop with us</a></li>
+        </ul>
+      </div>
+      <!-- Customer Support column -->
+      <div class="column1 customer-support">
+        <h2>Customer Support</h2>
+        <ul>
+          <li><a href="contact/index.html">FAQS</a></li> 
+          <li><a href="contact.html">CONTACT</a></li>
+          <li><a href="contact.html">Customer TestimonialsS</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- Bottom row -->
+    <div class="bottom-row">
+      <div class="copyright">
+        <p>copyright &copy; 2024| Designed by FALCUR CREW .</p>
+      </div>
+      <div class="links1">
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms and Conditions</a></p>
+      </div>
+    </div>
+  </footer>
+
+      
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+
+  <script>
+
+
+const swiperEl = document.querySelector('swiper-container')
+    Object.assign(swiperEl, {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      autoplay: {
+        delay: 2500,
+      },
+      autoplayDisableOnInteraction: false,
+      loop: true,
+      breakpoints: {
+        480: {
+            slidesPerView: 1,
+            spaceBetween: 2,
+        },
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 5,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 7,
+        },
+        1024: {
+          slidesPerView: 4,
+          spaceBetween: 7,
+        },
+      },
+    });
+    swiperEl.initialize();
+
+
+    const footer = document.querySelector('footer');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          footer.classList.add('in-view');
+          observer.unobserve(footer); // Stop observing after animation triggers
+        }
+      });
+    });
+    observer.observe(footer);
+  </script>
+
+
+<script>
+   
+
+   
+// Mobile menu functionality
+        const menuButton = document.getElementById('mobileMenuButton');
+        const menuCloseButton = document.getElementById('mobileMenuClose');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileOverlay = document.getElementById('mobileMenuOverlay');
+        
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('open');
+            mobileOverlay.classList.toggle('visible');
+            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : 'auto';
+        }
+        
+        // Event listeners for mobile menu
+        menuButton.addEventListener('click', toggleMobileMenu);
+        menuCloseButton.addEventListener('click', toggleMobileMenu);
+        mobileOverlay.addEventListener('click', toggleMobileMenu);
+        
+        // Mobile submenu functionality
+        const submenuTitles = document.querySelectorAll('.mobile-menu-title[data-submenu]');
+        
+        submenuTitles.forEach(title => {
+            title.addEventListener('click', function(e) {
+                // Don't toggle if clicking on a link that's not the title
+                if (e.target.tagName === 'A') return;
+                
+                const submenuId = this.getAttribute('data-submenu');
+                const submenu = document.getElementById(`mobile-${submenuId}-submenu`);
+                const icon = document.getElementById(`mobile-${submenuId}-icon`);
+                
+                // Close all other submenus first
+                document.querySelectorAll('.mobile-submenu').forEach(sm => {
+                    if (sm !== submenu) {
+                        sm.classList.remove('open');
+                        const otherIcon = document.getElementById(
+                            sm.id.replace('submenu', 'icon')
+                        );
+                        if (otherIcon) otherIcon.classList.remove('open');
+                    }
+                });
+                
+                // Toggle current submenu
+                submenu.classList.toggle('open');
+                
+                // Toggle icon rotation
+                icon.classList.toggle('open');
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    
+<script src="script.js"></script>
+
+<script>
+
+
+
+
+// Toast notification for Add to Cart
+function showCartToast(msg) {
+  const toast = document.getElementById('cart-toast');
+  const toastMsg = document.getElementById('cart-toast-msg');
+  toastMsg.textContent = msg;
+  toast.style.display = 'block';
+  setTimeout(() => { toast.style.opacity = 1; }, 10);
+  setTimeout(() => {
+    toast.style.opacity = 0;
+    setTimeout(() => { toast.style.display = 'none'; }, 400);
+  }, 2000);
+}
+
+// Attach event listeners to all add-to-cart buttons
+const addToCartBtns = document.querySelectorAll('.add-to-cart');
+addToCartBtns.forEach(btn => {
+  btn.addEventListener('click', function() {
+    const card = btn.closest('.product-card');
+    const name = card.querySelector('h3')?.textContent?.trim() || 'Product';
+    showCartToast(`${name} added to cart`);
+  });
+});
+</script>
+
+</body>
+</html>

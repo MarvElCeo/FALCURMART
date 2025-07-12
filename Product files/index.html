@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1", minimum-scale="1, maximum-scale=1">
+    <link rel="stylesheet" href="stylo.css">
+
+
+    
+    <title>Vee Essentials</title>
+</head>
+<body>
+  
+
+  
+    <section class="main">
+        <h4>Shop By Category</h4>
+
+        <swiper-container class="mySwiper swiper-cat" init="false">
+
+
+            <swiper-slide card-1 style="background-image: linear-gradient(#00000030, #00000030), url(th);">
+                
+                <div class="swiper-des" >
+                    <a href="">Brallete <i class='bx bx-right-arrow-alt'></i></a>
+                </div>
+                
+            </swiper-slide>
+
+
+
+            <swiper-slide card-2 style="background-image: linear-gradient(#00000030, #00000030), url(/bg/Shorts\ bg.jpeg);">
+                <div class="swiper-des">
+                    <a href="">Shorts <i class='bx bx-right-arrow-alt'></i></a>
+                </div>
+            </swiper-slide>
+            <swiper-slide card-3 style="background-image: linear-gradient(#00000030, #00000030), url(/bg/Sweatshirts\ bg.jpeg);">
+                <div class="swiper-des">
+                    <a href="">Sweatshirts <i class='bx bx-right-arrow-alt'></i></a>
+                </div>
+            </swiper-slide>
+            <swiper-slide card-4 style="background-image: linear-gradient(#00000030, #00000030), url(/bg/Shirts\ bg.jpeg);">
+                <div class="swiper-des">
+                    <a href="">Shirts <i class='bx bx-right-arrow-alt'></i></a>
+                </div>
+            </swiper-slide>
+            <swiper-slide style="background-image: linear-gradient(#00000030, #00000030),  url(/bg/Wigs\ bg.jpeg);">
+                <div class="swiper-des">
+                    <a href="">Hair & Wig <i class='bx bx-right-arrow-alt'></i></a>
+                </div>
+            </swiper-slide>
+            <swiper-slide style="background-image: linear-gradient(#00000030, #00000030),  url(/bg/watches\ bg.jpeg);">
+                <div class="swiper-des">
+                    <a href="">Watches <i class='bx bx-right-arrow-alt'></i></a>
+                </div>
+            </swiper-slide>
+            <swiper-slide style="background-image: linear-gradient(#00000030, #00000030),  url(/bg/Shoes\ bg.jpeg);">
+                <div class="swiper-des">
+                    <a href="">Shoes <i class='bx bx-right-arrow-alt'></i></a>
+                </div>
+            </swiper-slide>
+            <swiper-slide style="background-image: linear-gradient(#00000030, #00000030),  url(/bg/Dress\ bg.jpeg);">
+                <div class="swiper-des">
+                    <a href="">Female Dress <i class='bx bx-right-arrow-alt'></i></a>
+                </div>
+            </swiper-slide>
+            <swiper-slide style="background-image: linear-gradient(#00000030, #00000030),  url(/bg/Pants\ bg.jpeg);">
+                <div class="swiper-des">
+                    <a href="">Pants <i class='bx bx-right-arrow-alt'></i></a>
+                </div>
+            </swiper-slide>
+          </swiper-container>
+    </section>
+
+  
+
+  
+
+ <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+
+ 
+
+   <script>
+    const swiperEl = document.querySelector('swiper-container')
+    Object.assign(swiperEl, {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      autoplay: {
+        delay: 1500,
+      },
+      autoplayDisableOnInteraction: false,
+      loop: true,
+      breakpoints: {
+        480: {
+            slidesPerView: 1,
+            spaceBetween: 2,
+        },
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 5,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 7,
+        },
+        1024: {
+          slidesPerView: 4,
+          spaceBetween: 7,
+        },
+      },
+    });
+    swiperEl.initialize();
+
+   </script>
+
+</body>
+</html>

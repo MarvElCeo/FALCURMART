@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Complete Your Order</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>  
+        * {  
+            margin: 0;  
+            padding: 0;  
+            box-sizing: border-box;  
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
+        }  body {  
+           min-height: 100vh;  
+        display: flex;  
+        justify-content: center;  
+        align-items: center;  
+        padding: 20px;  
+    }  
+
+    .container {  
+        max-width: 900px;  
+        width: 100%;  
+    }  
+
+    .form-container {  
+        background: white;  
+        border-radius: 16px;  
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);  
+        overflow: hidden;  
+        position: relative;  
+    }  
+
+    .form-header {  
+        background: #2c3e50;  
+        color: white;  
+        padding: 25px 30px;  
+        text-align: center;  
+    }  
+
+    .form-header h1 {  
+        font-size: 1.8rem;  
+        margin-bottom: 5px;  
+    }  
+
+    .form-header p {  
+        opacity: 0.8;  
+    }  
+
+    .progress-bar {  
+        display: flex;  
+        justify-content: space-between;  
+        padding: 20px 40px;  
+        background: #f8f9fa;  
+        border-bottom: 1px solid #e9ecef;  
+    }  
+
+    .step {  
+        display: flex;  
+        flex-direction: column;  
+        align-items: center;  
+        position: relative;  
+        z-index: 1;  
+    }  
+
+    .step:not(:last-child):before {  
+        content: '';  
+        position: absolute;  
+        top: 20px;  
+        left: 50%;  
+        width: 100%;  
+        height: 2px;  
+        background: #e0e0e0;  
+        z-index: -1;  
+    }  
+
+    .step.completed:not(:last-child):before {  
+        background: #4CAF50;  
+    }  
+
+    .step-icon {  
+        width: 40px;  
+        height: 40px;  
+        border-radius: 50%;  
+        background: #e0e0e0;  
+        display: flex;  
+        align-items: center;  
+        justify-content: center;  
+        margin-bottom: 8px;  
+        color: #777;  
+        font-weight: bold;  
+        font-size: 18px;  
+        transition: all 0.3s ease;  
+    }  
+
+    .step.active .step-icon {  
+        background: #3498db;  
+        color: white;  
+        transform: scale(1.1);  
+    }  
+
+    .step.completed .step-icon {  
+        background: #4CAF50;  
+        color: white;  
+    }  
+
+    .step-label {  
+        font-size: 14px;  
+        color: #777;  
+        font-weight: 500;  
+    }  
+
+    .step.active .step-label {  
+        color: #3498db;  
+        font-weight: 600;  
+    }  
+
+    .step.completed .step-label {  
+        color: #4CAF50;  
+    }  
+
+    .form-body {  
+        padding: 30px;  
+    }  
+
+    .form-step {  
+        display: none;  
+    }  
+
+    .form-step.active {  
+        display: block;  
+        animation: fadeIn 0.5s ease;  
+    }  
+
+    @keyframes fadeIn {  
+        from { opacity: 0; transform: translateY(10px); }  
+        to { opacity: 1; transform: translateY(0); }  
+    }  
+
+    .step-title {  
+        font-size: 1.5rem;  
+        margin-bottom: 25px;  
+        color: #2c3e50;  
+        text-align: center;  
+        position: relative;  
+    }  
+
+    .step-title:after {  
+        content: '';  
+        position: absolute;  
+        bottom: -8px;  
+        left: 50%;  
+        transform: translateX(-50%);  
+        width: 60px;  
+        height: 3px;  
+        background: #3498db;  
+        border-radius: 3px;  
+    }  
+
+    .form-row {  
+        display: flex;  
+        flex-wrap: wrap;  
+        margin: 0 -10px;  
+    }  
+
+    .form-group {  
+        flex: 1 0 300px;  
+        padding: 0 10px;  
+        margin-bottom: 20px;  
+    }  
+
+    .form-group label {  
+        display: block;  
+        margin-bottom: 8px;  
+        font-weight: 500;  
+        color: #495057;  
+    }  
+
+    .form-group label.required:after {  
+        content: ' *';  
+        color: #e74c3c;  
+    }  
+
+    .input-with-icon {  
+        position: relative;  
+    }  
+
+    .input-with-icon i {  
+        position: absolute;  
+        left: 15px;  
+        top: 50%;  
+        transform: translateY(-50%);  
+        color: #6c757d;  
+    }  
+
+    .form-control {  
+        width: 100%;  
+        padding: 14px 15px 14px 45px;  
+        border: 1px solid #ced4da;  
+        border-radius: 8px;  
+        font-size: 16px;  
+        transition: all 0.3s ease;  
+    }  
+
+    .form-control:focus {  
+        outline: none;  
+        border-color: #3498db;  
+        box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);  
+    }  
+
+    select.form-control {  
+        appearance: none;  
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");  
+        background-position: right 0.5rem center;  
+        background-repeat: no-repeat;  
+        background-size: 1.5em 1.5em;  
+        padding-right: 2.5rem;  
+    }  
+
+    .button-group {  
+        display: flex;  
+        justify-content: space-between;  
+        margin-top: 30px;  
+    }  
+
+    .btn {  
+        padding: 14px 30px;  
+        border: none;  
+        border-radius: 8px;  
+        font-size: 16px;  
+        font-weight: 600;  
+        cursor: pointer;  
+        transition: all 0.3s ease;  
+        display: flex;  
+        align-items: center;  
+        justify-content: center;  
+    }  
+
+    .btn i {  
+        margin-right: 8px;  
+    }  
+
+    .btn-prev {  
+        background: #f8f9fa;  
+        color: #495057;  
+        border: 1px solid #ced4da;  
+    }  
+
+    .btn-prev:hover {  
+        background: #e9ecef;  
+    }  
+
+    .btn-next, .btn-submit {  
+        background: #3498db;  
+        color: white;  
+    }  
+
+    .btn-next:hover, .btn-submit:hover {  
+        background: #2980b9;  
+        transform: translateY(-2px);  
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+    }  
+
+    .btn-submit {  
+        background: #27ae60;  
+    }  
+
+    .btn-submit:hover {  
+        background: #219653;  
+    }  
+
+    /* Responsive design */  
+    @media (max-width: 768px) {  
+        .form-group {  
+            flex: 1 0 100%;  
+        }  
+          
+        .button-group {  
+            flex-direction: column;  
+            gap: 10px;  
+        }  
+          
+        .btn {  
+            width: 100%;  
+        }  
+          
+        .progress-bar {  
+            padding: 15px 20px;  
+        }  
+          
+        .step-icon {  
+            width: 35px;  
+            height: 35px;  
+            font-size: 16px;  
+        }  
+          
+        .step:not(:last-child):before {  
+            top: 17px;  
+        }  
+    }  
+
+    @media (max-width: 480px) {  
+        .form-body {  
+            padding: 20px 15px;  
+        }  
+          
+        .form-header {  
+            padding: 20px;  
+        }  
+          
+        .step-title {  
+            font-size: 1.3rem;  
+        }  
+    }  
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-container">
+      <div class="form-header">
+        <h1>Complete Your Order</h1>
+        <p>Please fill in all required information</p>
+      </div>
+
+      <div class="progress-bar">
+        <div class="step active" data-step="1">
+          <div class="step-icon">1</div>
+          <div class="step-label">Personal Info</div>
+        </div>
+        <div class="step" data-step="2">
+          <div class="step-icon">2</div>
+          <div class="step-label">Order Details</div>
+        </div>
+      </div>
+
+      <div class="form-body">
+        <!-- STEP 1 -->
+        <div class="form-step active" id="step-1">
+          <h2 class="step-title">Personal Information</h2>
+          <form id="personal-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="first-name" class="required">First Name</label>
+                <div class="input-with-icon">
+                  <i class="fas fa-user"></i>
+                  <input type="text" id="first-name" class="form-control" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="last-name" class="required">Last Name</label>
+                <div class="input-with-icon">
+                  <i class="fas fa-user"></i>
+                  <input type="text" id="last-name" class="form-control" required />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone" class="required">Phone Number</label>
+                <div class="input-with-icon">
+                  <i class="fas fa-phone"></i>
+                  <input type="tel" id="phone" class="form-control" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email" class="required">Email Address</label>
+                <div class="input-with-icon">
+                  <i class="fas fa-envelope"></i>
+                  <input type="email" id="email" class="form-control" required />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="hall" class="required">Hall Number</label>
+                <div class="input-with-icon">
+                  <i class="fas fa-building"></i>
+                  <input type="text" id="hall" class="form-control" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="room">Room Number</label>
+                <div class="input-with-icon">
+                  <i class="fas fa-door-open"></i>
+                  <input type="text" id="room" class="form-control" />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="level">Level</label>
+                <div class="input-with-icon">
+                  <i class="fas fa-layer-group"></i>
+                  <select id="level" class="form-control">
+                    <option value="">Select Level (Optional)</option>
+                    <option value="100">100 Level</option>
+                    <option value="200">200 Level</option>
+                    <option value="300">300 Level</option>
+                    <option value="400">400 Level</option>
+                    <option value="500">500 Level</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="button-group">
+              <div></div>
+              <button type="button" class="btn btn-next" id="next-to-step2">
+                <i class="fas fa-arrow-right"></i> Continue
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="form-step" id="step-2">
+          <h2 class="step-title">Order Details</h2>
+          <form id="order-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email-confirm" class="required">Email Address</label>
+                <div class="input-with-icon">
+                  <i class="fas fa-envelope"></i>
+                  <input type="email" id="email-confirm" class="form-control" required />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="hall-confirm" class="required">Hall Number</label>
+                <div class="input-with-icon">
+                  <i class="fas fa-building"></i>
+                  <input type="text" id="hall-confirm" class="form-control" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="room-confirm">Room Number</label>
+                <div class="input-with-icon">
+                  <i class="fas fa-door-open"></i>
+                  <input type="text" id="room-confirm" class="form-control" />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="level-confirm" class="required">Level</label>
+                <div class="input-with-icon">
+                  <i class="fas fa-layer-group"></i>
+                  <select id="level-confirm" class="form-control" required>
+                    <option value="">Select Level</option>
+                    <option value="100">100 Level</option>
+                    <option value="200">200 Level</option>
+                    <option value="300">300 Level</option>
+                    <option value="400">400 Level</option>
+                    <option value="500">500 Level</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="button-group">
+              <button type="button" class="btn btn-prev" id="back-to-step1">
+                <i class="fas fa-arrow-left"></i> Back
+              </button>
+              <button type="button" class="btn btn-submit" id="submit-order">
+                <i class="fas fa-check"></i> Place Order
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const step1 = document.getElementById('step-1');
+      const step2 = document.getElementById('step-2');
+      const nextButton = document.getElementById('next-to-step2');
+      const prevButton = document.getElementById('back-to-step1');
+      const submitButton = document.getElementById('submit-order');
+      const stepElements = document.querySelectorAll('.step');
+
+      const firstName = document.getElementById('first-name');
+      const lastName = document.getElementById('last-name');
+      const phone = document.getElementById('phone');
+      const email = document.getElementById('email');
+      const hall = document.getElementById('hall');
+      const room = document.getElementById('room');
+      const level = document.getElementById('level');
+
+      const emailConfirm = document.getElementById('email-confirm');
+      const hallConfirm = document.getElementById('hall-confirm');
+      const roomConfirm = document.getElementById('room-confirm');
+      const levelConfirm = document.getElementById('level-confirm');
+
+      nextButton.addEventListener('click', function () {
+        if (firstName.value && lastName.value && phone.value && email.value && hall.value) {
+          emailConfirm.value = email.value;
+          hallConfirm.value = hall.value;
+          roomConfirm.value = room.value;
+          levelConfirm.value = level.value;
+
+          step1.classList.remove('active');
+          step2.classList.add('active');
+          stepElements[0].classList.remove('active');
+          stepElements[0].classList.add('completed');
+          stepElements[1].classList.add('active');
+        } else {
+          alert('Please fill in all required fields marked with *');
+        }
+      });
+
+      prevButton.addEventListener('click', function () {
+        step2.classList.remove('active');
+        step1.classList.add('active');
+        stepElements[1].classList.remove('active');
+        stepElements[0].classList.add('active');
+      });
+
+      submitButton.addEventListener('click', function () {
+        if (emailConfirm.value && hallConfirm.value && levelConfirm.value) {
+          const cartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
+          const totalPrice = cartProducts.reduce((sum, item) => sum + item.price, 0);
+
+          const orderData = {
+            timestamp: new Date().toISOString(),
+            totalPrice: totalPrice,
+            customer: {
+              firstName: firstName.value,
+              lastName: lastName.value,
+              phone: phone.value,
+              email: emailConfirm.value,
+              hall: hallConfirm.value,
+              room: roomConfirm.value,
+              level: levelConfirm.value
+            },
+            products: cartProducts
+          };
+
+          fetch("https://john-fresh-default-rtdb.firebaseio.com/orders.json", {
+            method: "POST",
+            body: JSON.stringify(orderData),
+            headers: {
+              "Content-Type": "application/json"
+            }
+          })
+          .then(res => {
+            if (res.ok) {
+              alert("✅ Order placed successfully!");
+              document.getElementById('personal-form').reset();
+              document.getElementById('order-form').reset();
+              step2.classList.remove('active');
+              step1.classList.add('active');
+              stepElements[1].classList.remove('active');
+              stepElements[0].classList.remove('completed');
+              stepElements[0].classList.add('active');
+              localStorage.removeItem('cartProducts');
+            } else {
+              alert("❌ Failed to send order. Try again later.");
+            }
+          })
+          .catch(() => {
+            alert("❌ Network error. Check connection.");
+          });
+        } else {
+          alert('Please fill in all required fields marked with *');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

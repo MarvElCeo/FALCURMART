@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard - Order Management</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9fafb;
+    }
+    .sidebar {
+      transition: all 0.3s ease;
+      background-color: #1f2937;
+    }
+    .order-card {
+      transition: all 0.2s ease;
+      border: 1px solid #e5e7eb;
+    }
+    .order-card:hover {
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.05);
+      border-color: #d1d5db;
+    }
+    .status-badge {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 9999px;
+      font-weight: 500;
+    }
+    .chart-container {
+      height: 300px;
+    }
+    @media (max-width: 768px) {
+      .sidebar {
+        transform: translateX(-100%);
+        position: fixed;
+        z-index: 50;
+        height: 100vh;
+      }
+      .sidebar.active {
+        transform: translateX(0);
+      }
+      .mobile-menu-button {
+        display: block;
+      }
+    }
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #d1d5db;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #9ca3af;
+    }
+    /* Smooth transitions */
+    .smooth-transition {
+      transition: all 0.2s ease;
+    }
+    /* Dark mode sidebar items */
+    .sidebar-item {
+      color: #d1d5db;
+    }
+    .sidebar-item:hover {
+      background-color: #374151;
+      color: white;
+    }
+    .sidebar-item.active {
+      background-color: #111827;
+      color: white;
+    }
+    .close-sidebar {
+      transition: all 0.2s ease;
+      padding: 0.5rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <div class="flex h-screen overflow-hidden">
+    <!-- Sidebar -->
+    <div class="sidebar w-64 flex-shrink-0 text-white">
+      <div class="p-5 border-b border-gray-700 flex justify-between items-center">
+        <h1 class="text-xl font-bold flex items-center">
+          <i class="fas fa-store mr-3 text-gray-300"></i>
+          <span class="text-gray-100">Falcur mart admin</span>
+        </h1>
+        <button class="close-sidebar text-gray-400 hover:text-white md:hidden">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <nav class="p-4">
+        <ul class="space-y-1">
+          <li>
+            <a href="#" class="sidebar-item flex items-center p-3 rounded-lg">
+              <i class="fas fa-tachometer-alt mr-3 w-5 text-center"></i>
+              Dashboard
+            </a>
+          </li>
+          <li>
+            <a href="#" class="sidebar-item active flex items-center p-3 rounded-lg">
+              <i class="fas fa-shopping-bag mr-3 w-5 text-center"></i>
+              Orders
+            </a>
+          </li>
+          <li>
+            <a href="#" class="sidebar-item flex items-center p-3 rounded-lg">
+              <i class="fas fa-box-open mr-3 w-5 text-center"></i>
+              Products
+            </a>
+          </li>
+          <li>
+            <a href="#" class="sidebar-item flex items-center p-3 rounded-lg">
+              <i class="fas fa-users mr-3 w-5 text-center"></i>
+              Customers
+            </a>
+          </li>
+          <li>
+            <a href="#" class="sidebar-item flex items-center p-3 rounded-lg">
+              <i class="fas fa-chart-line mr-3 w-5 text-center"></i>
+              Analytics
+            </a>
+          </li>
+          <li class="pt-4 mt-4 border-t border-gray-700">
+            <a href="#" class="sidebar-item flex items-center p-3 rounded-lg">
+              <i class="fas fa-cog mr-3 w-5 text-center"></i>
+              Settings
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col overflow-hidden">
+      <!-- Top Navigation -->
+      <header class="bg-white border-b border-gray-200 py-4 px-6 flex items-center justify-between">
+        <div class="flex items-center">
+          <button class="mobile-menu-button mr-4 text-gray-600 focus:outline-none md:hidden">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+          <h2 class="text-lg font-semibold text-gray-800">Order Management</h2>
+        </div>
+        <div class="flex items-center space-x-4">
+          <div class="relative">
+            <button class="text-gray-500 hover:text-gray-700 focus:outline-none relative">
+              <i class="fas fa-bell text-xl"></i>
+              <span class="absolute top-0 right-0 h-2 w-2 rounded-full bg-red-500"></span>
+            </button>
+          </div>
+          <div class="flex items-center space-x-2">
+            <div class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-white font-semibold">
+              AM
+            </div>
+            <span class="text-gray-700 font-medium hidden md:inline">Falcur User</span>
+            <i class="fas fa-chevron-down text-gray-500 text-xs hidden md:inline"></i>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content Area -->
+      <main class="flex-1 overflow-y-auto p-6 bg-gray-50">
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+          <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-gray-500 text-sm font-medium">Total Orders</p>
+                <h3 class="text-2xl font-bold text-gray-800 mt-1" id="total-orders">0</h3>
+              </div>
+              <div class="bg-gray-100 p-3 rounded-full">
+                <i class="fas fa-shopping-bag text-gray-600"></i>
+              </div>
+            </div>
+            <p class="text-green-600 text-xs mt-2 font-medium">
+              <i class="fas fa-arrow-up mr-1"></i> 12% from last week
+            </p>
+          </div>
+          <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-gray-500 text-sm font-medium">Pending Orders</p>
+                <h3 class="text-2xl font-bold text-gray-800 mt-1" id="pending-orders">0</h3>
+              </div>
+              <div class="bg-gray-100 p-3 rounded-full">
+                <i class="fas fa-clock text-gray-600"></i>
+              </div>
+            </div>
+            <p class="text-red-600 text-xs mt-2 font-medium">
+              <i class="fas fa-arrow-down mr-1"></i> 3% from last week
+            </p>
+          </div>
+          <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-gray-500 text-sm font-medium">Completed Orders</p>
+                <h3 class="text-2xl font-bold text-gray-800 mt-1" id="completed-orders">0</h3>
+              </div>
+              <div class="bg-gray-100 p-3 rounded-full">
+                <i class="fas fa-check-circle text-gray-600"></i>
+              </div>
+            </div>
+            <p class="text-green-600 text-xs mt-2 font-medium">
+              <i class="fas fa-arrow-up mr-1"></i> 8% from last week
+            </p>
+          </div>
+          <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-gray-500 text-sm font-medium">Total Revenue</p>
+                <h3 class="text-2xl font-bold text-gray-800 mt-1" id="total-revenue">₦0</h3>
+              </div>
+              <div class="bg-gray-100 p-3 rounded-full">
+                <i class="fas fa-money-bill-wave text-gray-600"></i>
+              </div>
+            </div>
+            <p class="text-green-600 text-xs mt-2 font-medium">
+              <i class="fas fa-arrow-up mr-1"></i> 15% from last week
+            </p>
+          </div>
+        </div>
+
+        <!-- Recent Orders -->
+        <div class="bg-white rounded-lg shadow-sm overflow-hidden mb-6 border border-gray-200">
+          <div class="px-6 py-4 border-b border-gray-200 flex items-center justify-between">
+            <h3 class="text-lg font-semibold text-gray-800">Recent Orders</h3>
+            <div class="flex space-x-2">
+              <div class="relative">
+                <select class="appearance-none bg-white border border-gray-300 rounded-md pl-3 pr-8 py-1 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400">
+                  <option>All Status</option>
+                  <option>Pending</option>
+                  <option>Completed</option>
+                </select>
+                <i class="fas fa-chevron-down absolute right-2 top-2 text-gray-400 text-xs"></i>
+              </div>
+              <button class="px-3 py-1 text-sm bg-gray-50 text-gray-700 rounded-md border border-gray-300 hover:bg-gray-100 smooth-transition">
+                <i class="fas fa-download mr-1"></i> Export
+              </button>
+            </div>
+          </div>
+          <div class="p-6">
+            <div id="orders" class="space-y-4"></div>
+          </div>
+          <div class="px-6 py-4 border-t border-gray-200 flex items-center justify-between text-sm text-gray-600">
+            <span>Showing 1 to 10 of <span id="total-orders-display">0</span> orders</span>
+            <div class="flex space-x-2">
+              <button class="px-3 py-1 rounded-md border border-gray-300 bg-white hover:bg-gray-50 disabled:opacity-50" disabled>
+                Previous
+              </button>
+              <button class="px-3 py-1 rounded-md border border-gray-300 bg-white hover:bg-gray-50">
+                Next
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    document.querySelector('.mobile-menu-button').addEventListener('click', function() {
+      document.querySelector('.sidebar').classList.add('active');
+    });
+
+    // Close sidebar
+    document.querySelector('.close-sidebar').addEventListener('click', function() {
+      document.querySelector('.sidebar').classList.remove('active');
+    });
+
+    // Fetch orders data
+    const ordersDiv = document.getElementById("orders");
+    let totalOrders = 0;
+    let pendingOrders = 0;
+    let completedOrders = 0;
+    let totalRevenue = 0;
+
+    // Simulate loading state
+    ordersDiv.innerHTML = `
+      <div class="flex justify-center items-center py-12">
+        <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-400"></div>
+      </div>
+    `;
+
+    // Simulate API delay
+    setTimeout(() => {
+      fetch("https://john-fresh-default-rtdb.firebaseio.com/orders.json")
+        .then(res => res.json())
+        .then(data => {
+          if (!data) {
+            showNoOrders();
+            return;
+          }
+
+          ordersDiv.innerHTML = '';
+          
+          for (let key in data) {
+            totalOrders++;
+            const order = data[key];
+            const approved = order.approved === true;
+
+            if (approved) {
+              completedOrders++;
+              totalRevenue += order.totalPrice || 0;
+            } else {
+              pendingOrders++;
+            }
+
+            const customerName = order.customer?.firstName || "Unknown";
+            const customerLast = order.customer?.lastName || "";
+            const orderDate = new Date(order.timestamp || Date.now()).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'short',
+              day: 'numeric',
+              hour: '2-digit',
+              minute: '2-digit'
+            });
+
+            const div = document.createElement("div");
+            div.className = "order-card bg-white rounded-lg p-5 smooth-transition";
+            div.setAttribute("data-id", key);
+
+            div.innerHTML = `
+              <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                <div>
+                  <div class="flex items-center mb-2">
+                    <h3 class="text-lg font-semibold text-gray-800">${customerName} ${customerLast}</h3>
+                    <span class="status-badge ${approved ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'} ml-2">
+                      ${approved ? 'Completed' : 'Pending'}
+                    </span>
+                  </div>
+                  <p class="text-sm text-gray-500 mb-1"><i class="far fa-calendar-alt mr-1"></i> ${orderDate}</p>
+                  <p class="text-sm text-gray-500"><i class="fas fa-phone mr-1"></i> ${order.customer?.phone || "N/A"}</p>
+                </div>
+                <div class="mt-3 md:mt-0">
+                  <div class="text-right">
+                    <p class="text-sm text-gray-500">Order Total</p>
+                    <p class="text-xl font-bold text-gray-800">₦${order.totalPrice?.toLocaleString() || "0"}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-4 pt-4 border-t border-gray-100">
+                <h4 class="text-sm font-medium text-gray-700 mb-2"><i class="fas fa-boxes mr-1"></i> Products Ordered</h4>
+                <ul class="product-list space-y-1 text-sm text-gray-600" id="products-${key}"></ul>
+              </div>
+
+              <div class="mt-4 flex justify-end space-x-3">
+                ${approved ? 
+                  `<span class="px-3 py-1 text-sm bg-green-100 text-green-800 rounded-md inline-flex items-center">
+                    <i class="fas fa-check-circle mr-1"></i> Approved
+                  </span>` : 
+                  `<button class="approve-btn px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700 smooth-transition inline-flex items-center" data-key="${key}">
+                    <i class="fas fa-check-circle mr-1"></i> Approve
+                  </button>`
+                }
+                <button class="delete-btn px-4 py-2 bg-white text-gray-700 rounded-md border border-gray-300 hover:bg-gray-50 smooth-transition inline-flex items-center" data-key="${key}">
+                  <i class="fas fa-trash-alt mr-1"></i> Delete
+                </button>
+              </div>
+            `;
+
+            ordersDiv.appendChild(div);
+
+            const ul = document.getElementById(`products-${key}`);
+            (order.products || []).forEach(product => {
+              const li = document.createElement("li");
+              li.className = "flex justify-between";
+              li.innerHTML = `
+                <span class="truncate max-w-xs">${product.title} (${product.desc})</span>
+                <span class="font-medium whitespace-nowrap ml-2">₦${product.price?.toLocaleString() || "0"}</span>
+              `;
+              ul.appendChild(li);
+            });
+          }
+
+          // Update stats
+          updateStats();
+
+          // Set up event listeners
+          setupEventListeners(data);
+        })
+        .catch(() => {
+          showError();
+        });
+    }, 1000); // Simulate network delay
+
+    function showNoOrders() {
+      ordersDiv.innerHTML = `
+        <div class="text-center py-12">
+          <i class="far fa-shopping-bag text-4xl text-gray-300 mb-4"></i>
+          <p class="text-gray-500">No orders found</p>
+          <button class="mt-4 px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700 smooth-transition inline-flex items-center" onclick="window.location.reload()">
+            <i class="fas fa-sync-alt mr-1"></i> Refresh
+          </button>
+        </div>
+      `;
+    }
+
+    function showError() {
+      ordersDiv.innerHTML = `
+        <div class="text-center py-12">
+          <i class="fas fa-exclamation-triangle text-4xl text-red-300 mb-4"></i>
+          <p class="text-gray-500">Failed to load orders. Please check your connection.</p>
+          <button class="mt-4 px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700 smooth-transition inline-flex items-center" onclick="window.location.reload()">
+            <i class="fas fa-sync-alt mr-1"></i> Retry
+          </button>
+        </div>
+      `;
+    }
+
+    function updateStats() {
+      document.getElementById('total-orders').textContent = totalOrders;
+      document.getElementById('pending-orders').textContent = pendingOrders;
+      document.getElementById('completed-orders').textContent = completedOrders;
+      document.getElementById('total-revenue').textContent = `₦${totalRevenue.toLocaleString()}`;
+      document.getElementById('total-orders-display').textContent = totalOrders;
+    }
+
+    function setupEventListeners(data) {
+      // Approve Logic
+      document.querySelectorAll(".approve-btn").forEach(btn => {
+        btn.addEventListener("click", function() {
+          const key = btn.getAttribute("data-key");
+          
+          // Show loading state
+          btn.innerHTML = `<i class="fas fa-spinner fa-spin mr-1"></i> Processing`;
+          btn.disabled = true;
+
+          fetch(`https://john-fresh-default-rtdb.firebaseio.com/orders/${key}.json`, {
+            method: "PATCH",
+            body: JSON.stringify({ approved: true }),
+            headers: {
+              "Content-Type": "application/json"
+            }
+          })
+          .then(() => {
+            // Update UI
+            const orderCard = btn.closest('.order-card');
+            const badge = orderCard.querySelector('.status-badge');
+            const approveBtn = orderCard.querySelector('.approve-btn');
+
+            badge.classList.remove('bg-gray-100', 'text-gray-800');
+            badge.classList.add('bg-green-100', 'text-green-800');
+            badge.textContent = 'Completed';
+
+            approveBtn.outerHTML = `
+              <span class="px-3 py-1 text-sm bg-green-100 text-green-800 rounded-md inline-flex items-center">
+                <i class="fas fa-check-circle mr-1"></i> Approved
+              </span>
+            `;
+
+            // Update stats
+            pendingOrders--;
+            completedOrders++;
+            totalRevenue += data[key].totalPrice || 0;
+
+            updateStats();
+          })
+          .catch(() => {
+            btn.innerHTML = `<i class="fas fa-check-circle mr-1"></i> Approve`;
+            btn.disabled = false;
+            alert("Failed to approve order. Please try again.");
+          });
+        });
+      });
+
+      // Delete Logic
+      document.querySelectorAll(".delete-btn").forEach(btn => {
+        btn.addEventListener("click", function() {
+          const key = btn.getAttribute("data-key");
+          const orderCard = btn.closest('.order-card');
+          const isApproved = data[key].approved === true;
+
+          if (confirm("Are you sure you want to delete this order?")) {
+            // Show loading state
+            btn.innerHTML = `<i class="fas fa-spinner fa-spin mr-1"></i> Deleting`;
+            btn.disabled = true;
+
+            fetch(`https://john-fresh-default-rtdb.firebaseio.com/orders/${key}.json`, {
+              method: "DELETE"
+            })
+            .then(() => {
+              orderCard.classList.add('opacity-0');
+              setTimeout(() => orderCard.remove(), 300);
+
+              // Update stats
+              totalOrders--;
+              if (isApproved) {
+                completedOrders--;
+                totalRevenue -= data[key].totalPrice || 0;
+              } else {
+                pendingOrders--;
+              }
+
+              updateStats();
+            })
+            .catch(() => {
+              btn.innerHTML = `<i class="fas fa-trash-alt mr-1"></i> Delete`;
+              btn.disabled = false;
+              alert("Failed to delete order. Please try again.");
+            });
+          }
+        });
+      });
+    }
+  </script>
+</body>
+</html>

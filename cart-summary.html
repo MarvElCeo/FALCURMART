@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart Summary</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { font-family: 'Poppins', Arial, sans-serif; background: #f7f7f7; margin: 0; }
+    .summary-container { max-width: 600px; margin: 40px auto; background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 32px 24px; }
+    .summary-title { font-size: 2rem; margin-bottom: 18px; }
+    .summary-list { margin-bottom: 24px; }
+    .summary-item { display: flex; align-items: center; border-bottom: 1px solid #eee; padding: 12px 0; }
+    .summary-item img { width: 60px; height: 60px; object-fit: cover; border-radius: 8px; margin-right: 16px; }
+    .summary-details { flex: 1; }
+    .summary-details h4 { margin: 0 0 4px 0; font-size: 1.1rem; }
+    .summary-details p { margin: 0; font-size: 0.95rem; color: #555; }
+    .summary-price { font-weight: bold; color: #007bff; }
+    .summary-total { font-size: 1.2rem; margin: 18px 0 24px 0; font-weight: bold; }
+    .confirm-btn { width: 100%; padding: 14px 0; background: #007bff; color: #fff; border: none; border-radius: 6px; font-size: 1.1rem; font-weight: bold; cursor: pointer; }
+    .success-message { color: green; font-size: 1.2rem; margin-top: 24px; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="summary-container">
+    <div class="summary-title">Here's what you're about to order</div>
+    <div class="summary-list" id="summary-list"></div>
+    <div class="summary-total">Total: ₦<span id="summary-total">0</span></div>
+    <button class="confirm-btn" id="confirm-btn">Confirm Order</button>
+    <div class="success-message" id="success-message" style="display:none;">Order Confirmed! Thank you for shopping with us.</div>
+  </div>
+  <script>
+    const cartProducts = JSON.parse(localStorage.getItem('falcurmart_cart')) || [];
+    const summaryList = document.getElementById('summary-list');
+    const summaryTotal = document.getElementById('summary-total');
+    let total = 0;
+
+    if (cartProducts.length === 0) {
+      summaryList.innerHTML = '<p>Your cart is empty.</p>';
+      document.getElementById('confirm-btn').style.display = 'none';
+    } else {
+      cartProducts.forEach(prod => {
+        const item = document.createElement('div');
+        item.className = 'summary-item';
+        item.innerHTML = `
+          <img src="${prod.img}" alt="">
+          <div class="summary-details">
+            <h4>${prod.title}</h4>
+            <p>${prod.desc}</p>
+          </div>
+          <div class="summary-price">₦${prod.price.toLocaleString()}</div>
+        `;
+        summaryList.appendChild(item);
+        total += prod.price;
+      });
+      summaryTotal.textContent = total.toLocaleString();
+    }
+
+    document.getElementById('confirm-btn').onclick = function () {
+  // ✅ Do NOT send to Firebase here
+  // ✅ Just go to personal info page
+  window.location.href = 'Login.html';  // Your actual form page name
+};
+  </script>
+</body>
+</html>

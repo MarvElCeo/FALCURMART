@@ -1,0 +1,134 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="logo">
+        <i class="ri-admin-line"></i>
+        <span>Admin Panel</span>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item active">
+          <i class="ri-dashboard-line"></i>
+          <span>Dashboard</span>
+        </a>
+        <a href="#" class="nav-item">
+          <i class="ri-user-line"></i>
+          <span>Users</span>
+        </a>
+        <a href="#" class="nav-item">
+          <i class="ri-shopping-cart-line"></i>
+          <span>Products</span>
+        </a>
+        <a href="#" class="nav-item">
+          <i class="ri-file-list-line"></i>
+          <span>Orders</span>
+        </a>
+        <a href="#" class="nav-item">
+          <i class="ri-settings-line"></i>
+          <span>Settings</span>
+        </a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="top-bar">
+        <div class="search-bar">
+          <i class="ri-search-line"></i>
+          <input type="text" placeholder="Search...">
+        </div>
+        <div class="user-menu">
+          <div class="notifications">
+            <i class="ri-notification-3-line"></i>
+            <span class="badge">3</span>
+          </div>
+          <div class="profile">
+            <img src="https://ui-avatars.com/api/?name=Admin+User" alt="Profile">
+            <span>Admin User</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="dashboard-content">
+        <div class="stats-cards">
+          <div class="card">
+            <div class="card-icon users">
+              <i class="ri-user-line"></i>
+            </div>
+            <div class="card-info">
+              <h3>Total Users</h3>
+              <p class="number">1,258</p>
+              <p class="growth positive">+12.5%</p>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-icon revenue">
+              <i class="ri-money-dollar-circle-line"></i>
+            </div>
+            <div class="card-info">
+              <h3>Revenue</h3>
+              <p class="number">$84,245</p>
+              <p class="growth positive">+8.2%</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-icon orders">
+              <i class="ri-shopping-cart-line"></i>
+            </div>
+            <div class="card-info">
+              <h3>Orders</h3>
+              <p class="number">458</p>
+              <p class="growth negative">-2.4%</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-icon products">
+              <i class="ri-box-3-line"></i>
+            </div>
+            <div class="card-info">
+              <h3>Products</h3>
+              <p class="number">745</p>
+              <p class="growth positive">+5.7%</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="charts-grid">
+          <div class="chart-container sales-chart">
+            <h3>Sales Analytics</h3>
+            <canvas id="salesChart"></canvas>
+          </div>
+          <div class="chart-container users-chart">
+            <h3>User Growth</h3>
+            <canvas id="usersChart"></canvas>
+          </div>
+        </div>
+
+        <div class="recent-activity">
+          <h3>Recent Activity</h3>
+          <div class="activity-list">
+          </div>
+        </div>
+        <!-- Place this anywhere in your main page -->
+<div style="text-align: center; margin: 20px;">
+  <button onclick="window.location.href='product information.html'" class="btn btn-next">
+    <i class="fas fa-user-shield"></i> info product 
+  </button>
+</div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>
